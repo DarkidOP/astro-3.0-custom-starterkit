@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# Astro 3.0 Custom Starter Kit // by darkid
 
 ```sh
 npm create astro@latest -- --template basics
