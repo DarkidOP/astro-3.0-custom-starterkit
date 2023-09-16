@@ -1,0 +1,42 @@
+---
+interface Props {
+    img: string;
+    width?: string;
+    padding?: string;
+    aspectRatio?: string;
+    class?: undefined;
+
+}
+const  { class: className, img, width="100%", padding="0", aspectRatio} = Astro.props;
+
+import SkeletonLoadimg from "./SkeletonLoadimg.astro";
+---
+<div class="wra">
+    <SkeletonLoadimg/>
+    <img class="x" src={img} loading="lazy">
+</div>
+
+<style define:vars={{width, padding, aspectRatio}}>
+	div{
+        
+		padding: var(--padding);
+        width: var(--width);
+        aspect-ratio: var(--aspectRatio);
+        object-fit:cover;
+        object-position: center center;
+        transition: var(--transition-speed);
+        display: grid;
+        grid-template-areas: 'stackImg';
+	}
+	div > * {
+		grid-area: stackImg;
+	}
+    div img{
+
+        width: 100%;
+		height: 100%;
+        object-fit:cover;
+        object-position: center center;
+        
+    }
+</style>

@@ -1,14 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
+import SkeletonLoadimg from '../components/Utils/SkeletonLoadimg.astro';
+import ImageSkeletonLoad from '../components/Utils/ImageSkeletonLoad.astro';
 ---
 
 <Layout title="Level7 Marketing Solutions Ltd">
 	<main>
 		<h1>Hello!</h1>
+		<ImageSkeletonLoad
+		padding="20rem"
+		img = "https://cdn.discordapp.com/attachments/807283075897753635/1151079934777905253/image.png"
+		 />
+		<!-- <div class="wra">
+			<SkeletonLoadimg/>
+			<img class="x" src="https://cdn.discordapp.com/attachments/807283075897753635/1151079934777905253/image.png">
+
+		</div> -->
 	</main>
 </Layout>
 
-<style>
-	
-</style>
