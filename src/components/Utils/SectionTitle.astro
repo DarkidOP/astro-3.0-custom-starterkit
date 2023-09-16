@@ -1,0 +1,33 @@
+---
+const {text, id} = Astro.props;
+---
+
+
+<div class="section-title-div" id={id}>
+    <div class="section-title text-center" >
+        <h1 class="hidden-title" aria-hidden="true">i</h1>
+        <h1>{text}</h1>
+    </div>
+</div>
+
+<style>
+
+.section-title-div{
+    text-align: center;
+    position: relative;
+}
+.hidden-title{
+    position: absolute;
+    left: -2000%;
+  }
+
+.section-title h1 {
+    font-size: clamp(3.25rem, 8vw, 4.3rem);
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 3px;
+    line-height: 1em;
+    color:  var(--clr-accent-1);
+}
+
+</style>

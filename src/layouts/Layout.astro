@@ -1,0 +1,198 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+	keywords?: string;
+	image?: object;
+}
+
+const { title, description, image, keywords} = Astro.props;
+
+
+// component imports
+import Seo from '../components/Utils/Seo.astro'
+import Alert from '../components/Utils/Alert.astro'
+import TopButton from '../components/Utils/TopButton.astro'
+import Cursor from "../components/Utils/Cursor.astro";
+// utils import 
+import {emptyStringChecker} from '../js/utils.js'
+// styles import
+import '../styles/colors.css';
+import "../styles/fonts.css";
+
+let defaultDescription = "";
+let defaultKeyword = "level7ltd, level7, L7ltd, soluitions, brand, event, management, marketing, production, dhaka, rangpur, cgs, event, organizer, Bangladesh, tournament, esports, gaming, bangladeshi, zenetic esports";
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta name="generator" content={Astro.generator} />
+
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="index,follow">
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<title>{title}</title>
+		<meta name="description" content={emptyStringChecker(description, defaultDescription)}/>
+		<meta name="keywords" content={defaultKeyword} />
+		<Seo 
+		title={title}
+		url={Astro.url}
+		{image}
+		/>
+
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	</head>
+	<body>
+		<Alert/>
+		<TopButton/>
+		<Cursor/>
+		<slot />
+	</body>
+</html>
+<script src="/csr.js" is:inline></script>
+<script>
+	const body = document.querySelector("body");
+	window.addEventListener('scroll', () =>{
+		//adds the "scroll-true class to the body"
+		if (window.scrollY> 120) {body.classList.add("scroll-true-180");} 
+		else {body.classList.remove("scroll-true-180");} 
+		if (window.scrollY> 90) {body.classList.add("scroll-true-90");} 
+		else {body.classList.remove("scroll-true-90");} 
+	})
+</script>
+<style is:global>
+	*, *::before, *::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		text-decoration: none;
+		list-style: none;
+		color: inherit;
+	}
+	html {
+		--container-max-width: 1320px;
+		scroll-behavior: smooth;
+		color-scheme: dark light;
+	}
+	body{
+		font-family: system-ui, sans-serif;
+		font-family: 'Nunito Sans', sans-serif;
+		color: var(--clr-light-silver);
+		color: var(--clr-pure-white);
+		background-color: var(--clr-dark-0);
+	}
+	/* @supports (mix-blend-mode:overlay) {
+		body::before{
+		content: ' ';
+		position: fixed;
+		z-index: 100000;
+		height: 120%;
+		width: 120%;
+		pointer-events: none;
+		background-image: url('/assets/noise.webp');
+		mix-blend-mode:overlay;
+		opacity: 0.33;
+		user-select: none;
+	}
+	} */
+
+
+	input, textarea, button, select{
+		font: inherit;
+	}
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+		Bitstream Vera Sans Mono, Courier New, monospace;
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--clr-accent-1-rgba), 12%);
+		color: var(--clr-accent-1);
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	strong {
+		color: rgb(var(--clr-accent-1-rgba));
+	}
+
+	.pre{
+		white-space: pre;
+	}
+	.grid{
+		display: grid;
+	}
+	.flex{
+		display: flex;
+	}
+	.flex-wrap{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.accent-clr{
+		color: var(--clr-accent-1);
+	}
+	.red-clr{
+		color: var(--clr-red);
+	}
+	.text-gradient-accent {
+		color: var(--clr-accent-1);
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.text-gradient-silver {
+		color: var(--clr-light-silver);
+		background-image: var(--silver-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.deactive{
+		display: none !important;
+	}
+	.inline-link{
+		
+	padding: 0.14em 0.4em;
+	border-radius: 5px;
+	background: rgba(var(--clr-accent-1-rgba), 0.2);
+	color: var(--clr-accent-1);
+	transition: var(--transition-speed);
+	filter: drop-shadow(0px 0px 30px rgba(var(--clr-accent-1-rgba), 0.4));
+	}
+	.inline-link[href]:hover{
+		user-select: none;
+		transition: var(--transition-speed);
+		cursor: pointer;
+		background: rgba(var(--clr-accent-1-rgba), 0.3);
+		filter: drop-shadow(0px 0px 30px rgba(var(--clr-accent-1-rgba), 0.9));
+	}
+	@keyframes pulse {
+    0% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
+	}
+	.skeleton-load{
+        animation: pulse 1s  ease-in-out infinite;
+    }
+
+	.container{
+	max-width: var(--container-max-width);
+    margin: 0  auto;
+    padding: 5rem 3rem 1rem 3rem;
+
+	}
+	/* main{
+		padding-top: 2rem;
+	} */
+</style>

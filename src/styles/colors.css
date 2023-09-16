@@ -1,0 +1,63 @@
+:root {
+    --clr-accent-1: #1087FF;
+    --clr-accent-1-rgba: 16, 135, 255;
+    /* --clr-accent-2: #98ea34;
+    --clr-accent-2-rgba: 152, 234, 52; */
+
+    --accent-gradient: linear-gradient(45deg, #5b8d37, var(--clr-accent-1) 30%, var(--clr-dark-1) 60%);
+    --accent-gradient-txt: linear-gradient(45deg, rgb(var(--clr-accent-1-rgba)) 0%, var(--clr-accent-2) 100%);
+    --silver-gradient: linear-gradient(0deg, var(--clr-light-silver) 0%, var(--clr-pure-white) 97%);
+    --main-bg-gradient: linear-gradient(180deg, var(--clr-dark-1) 0%, var(--clr-dark-0) 100%);
+
+    --clr-dark-0: #030F1A;
+    --clr-dark-0-rgba: 3, 15, 26;
+    --clr-dark-1: #091626;
+    --clr-dark-1-rgba: 9, 22, 38;
+    /* --clr-dark-2: #1e2639;
+    --clr-dark-2-rgba: 30, 38, 57; */
+
+    --clr-light-silver: #C4C3CA;
+    --clr-light-silver-rgba: 196, 195, 202;
+    --clr-pure-white:  #fff;
+    --clr-pure-white-rgba:  255, 255, 255;
+
+
+
+
+    --clr-red: #e91236;
+    --clr-dew-red: #e2010b;
+    --clr-red-rgba: 233, 18, 54;
+    --clr-green-0: #57ca81;
+    --clr-green-0-rgb: 87, 202, 129;
+    --transition-speed: 250ms;
+}
+
+
+
+
+.classicDark{
+    --clr-light-silver: #dadada;
+    /* --clr-light-silver-rgba: 209, 215, 224; */
+    --clr-light-silver-rgba: 209, 211, 218;
+    --clr-pure-white:  #fff;
+
+    --clr-dark-0: #0c0c0d;
+    --clr-dark-0-rgba: 12, 12, 13;
+    --clr-dark-1: #18181b;
+    --clr-dark-1-rgba: 24, 24, 27;
+    --clr-dark-2: #292828;
+    --clr-dark-2-rgba: 41, 40, 40;
+}
+
+.classicLight{
+    --clr-dark-0: #d1d3da;
+    --clr-dark-0-rgba: 209, 211, 218;
+    --clr-dark-1: #757578;
+    --clr-dark-1-rgba: 131, 131, 135;
+    --clr-dark-2: #4a4a4d;
+
+    --clr-light-silver: #0c0c0d;
+    /* --clr-light-silver-rgba: 209, 215, 224; */
+    --clr-light-silver-rgba: 12, 12, 13;
+    --clr-pure-white:  black;
+}

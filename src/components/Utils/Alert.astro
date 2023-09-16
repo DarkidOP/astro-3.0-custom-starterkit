@@ -1,0 +1,113 @@
+---
+const {class: className} = Astro.props;
+---
+<div class="alerts-div">
+    <div id="successAlert" class="alertCard disabled">
+        <h4 id="successAlertText">This is a normal alert</h4>
+        <button type ="button" class="close successAlertClose" data-dismiss="alert">
+            <i class='bx bx-check'></i>
+        </button>
+    </div>
+    <div id="dangerAlert" class="alertCard disabled">
+        <h4 id="dangerAlertText">This is a danger allert</h4>
+        <button type ="button" class="close dangerAlertClose" data-dismiss="alert">
+            <i class='bx bx-x'></i>
+          </button>
+    </div>
+</div>
+<script is:inline>
+    
+    const SuccessAlertDiv = document.getElementById('successAlert');
+    const successAlertText = document.getElementById('successAlertText');
+    const SuccessCloseBtn = document.querySelector('.successAlertClose');
+
+    const DangerAlertDiv = document.getElementById('dangerAlert');
+    const dangerAlertText = document.getElementById('dangerAlertText');
+    const DangerCloseBtn = document.querySelector('.dangerAlertClose');
+
+
+    SuccessCloseBtn.addEventListener('click', () => {
+        SuccessAlertDiv.classList.add('disabled');
+    })
+    DangerCloseBtn.addEventListener('click', () => {
+        DangerAlertDiv.classList.add('disabled');
+    })
+
+
+    function successAlert(text, timeOut=3100){
+        SuccessAlertDiv.classList.remove('disabled');
+        successAlertText.innerText = (text);
+        setTimeout(() => {SuccessAlertDiv.classList.add('disabled');}, timeOut);
+    }
+    function dangerAlert(text,  timeOut=3500){
+        DangerAlertDiv.classList.remove('disabled');
+        dangerAlertText.innerText = (text);
+        setTimeout(() => {DangerAlertDiv.classList.add('disabled');}, timeOut);
+    }
+</script>
+<style>
+    .alerts-div{
+        position: fixed;
+        right: 15%;
+        bottom: 10%;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: end;
+        gap: 0.8rem;
+    }
+    .alertCard{
+        padding: 1rem;
+        background-color: rgba(var(--clr-dark-0-rgba), 0.3);
+        backdrop-filter: blur(50px);
+        border: 1px solid rgba(var(--clr-accent-1-rgba), 0.6);
+        border-radius: 5px;
+        font-size: 0.95rem;
+        display: flex;
+        gap: 0.6em;
+        justify-content: space-between;
+        place-items: center;
+    }
+    /* .alert button{
+      font-size: 5rem;
+    } */
+
+    .alertCard .close{
+      all: unset;
+      padding: 0.1rem 0.23rem 0.02rem;
+      border-radius: 50%;
+      border:  2px solid var(--clr-red);
+      background: rgba(var(--clr-red-rgba), 0.3);
+      text-align: center;
+
+      cursor: pointer;
+      transition: var(--transition-speed);
+    }
+    .alertCard .close:is(:hover,:focus-within){
+      transition: var(--transition-speed);
+      background: rgba(var(--clr-red-rgba), 0.8);
+    }
+    #successAlert .close{
+        border:  2px solid var(--clr-accent-1);
+        background: rgba(var(--clr-accent-1-rgba), 0.3);
+        transition: var(--transition-speed);
+    }
+    #successAlert .close:is(:hover,:focus-within){
+      transition: var(--transition-speed);
+      background: rgba(var(--clr-accent-1-rgba), 0.8);
+    }
+    .disabled{
+        /* opacity: 0;
+        user-select: none;
+        pointer-events: none; */
+        display: none;
+    }
+    /* #successAlert{
+        color: green;
+    }
+
+    #dangerAlert{
+        color: red;
+    } */
+</style>

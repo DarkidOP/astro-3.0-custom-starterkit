@@ -1,0 +1,103 @@
+---
+const { class: className ,platform, target} = Astro.props;
+const { name, link} = platform;
+
+let hrefTarget = '_blank';
+let retunThis = true;
+if(target){
+    hrefTarget = target;
+}
+
+const platforms = {
+    website: false,
+    instagram: false,
+    discord: false,
+    facebook: false,
+    twitter: false,
+    spotify: false,
+    youtube: false,
+    linkedin: false,
+    behance: false,
+    whatsapp: false,
+    twitch: false,
+    pinterest: false,
+    reddit: false,
+    slack: false,
+    dribbble: false,
+}
+
+
+let availablePlatforms = Object.keys(platforms);
+    availablePlatforms.forEach((item) =>{
+        if(item == name.toLowerCase()){
+            platforms[item] = true;
+        }
+    });
+
+
+
+
+
+    
+let matches = Object.values(platforms).some((item)=> {
+    if(item == true) return true;
+    else return false;
+})
+---
+{
+matches && (
+<li class={className}><a href={link} target={hrefTarget} >
+
+
+        {platforms.website &&
+        (<i class='bx bx-world'></i>)
+        }
+        {platforms.instagram &&
+        (<i class='bx bxl-instagram-alt'></i>)
+        }
+
+        {platforms.discord &&
+        (<i class='bx bxl-discord-alt'></i>)
+        }
+        {platforms.facebook &&
+        (<i class='bx bxl-facebook-circle'></i>)
+        }
+        {platforms.twitter &&
+        (<i class='bx bxl-twitter'></i>)
+        }
+        {platforms.spotify &&
+        (<i class='bx bxl-spotify'></i>)
+        }
+        {platforms.youtube &&
+        (<i class='bx bxl-youtube'></i>)
+        }
+        {platforms.linkedin &&
+        (<i class='bx bxl-linkedin'></i>)
+        }
+        {platforms.behance &&
+        (<i class='bx bxl-behance'></i>)
+        }
+        {platforms.whatsapp &&
+        (<i class='bx bxl-whatsapp'></i>)
+        }
+        {platforms.twitch &&
+        (<i class='bx bxl-twitch'></i>)
+        }
+        {platforms.pinterest &&
+        (<i class='bx bxl-pinterest'></i>)
+        }
+        {platforms.reddit &&
+        (<i class='bx bxl-reddit'></i>)
+        }
+        {platforms.slack &&
+        (<i class='bx bxl-slack'></i>)
+        }
+        {platforms.dribbble &&
+        (<i class='bx bxl-dribbble'></i>)
+        }
+</a>
+</li>
+)
+}
+
+

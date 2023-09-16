@@ -1,0 +1,109 @@
+<div class="mouse-cursor cursor-out" id=""></div>
+<div class="mouse-cursor cursor-in"></div>
+
+<script is:inline>
+function mousecursor(){
+        const cursorIn = document.querySelector(".cursor-in"),
+        cursorOut = document.querySelector(".cursor-out");
+        let n,
+        i = 0,
+        o = !1;
+        (window.onmousemove = function (s) {
+        o ||
+            (cursorIn.style.transform =
+            "translate(" + s.clientX + "px, " + s.clientY + "px)"),
+            (cursorOut.style.transform =
+            "translate(" + s.clientX + "px, " + s.clientY + "px)"),
+
+            (n = s.clientY),
+            (i = s.clientX);
+        })
+        (cursorIn.style.visibility = "visible"),
+        (cursorOut.style.visibility = "visible");
+}
+
+mousecursor()
+
+</script>
+
+<style is:global>
+    body {
+        cursor: none;
+    }
+
+    .mouse-cursor {
+        position: fixed;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+        border-radius: 50%;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        visibility: hidden;
+    }
+
+    .cursor-in {
+        margin-left: 3px;
+        margin-top: 3px;
+        width: 6px;
+        height: 6px;
+        z-index: 10000001;
+        background-color:  var(--clr-accent-1);
+    }
+    .classicLight  .cursor-in {
+        background-color:  var(--clr-light-silver);
+    }
+    .cursor-in.cursor-pointer-hover {
+        margin-left: -40px;
+        margin-top: -40px;
+        width: 80px;
+        height: 80px;
+        background-color:  var(--clr-accent-1);
+        opacity: 0.34;
+    }
+    .classicLight  .cursor-pointer-hover {
+        background-color:  var(--clr-light-silver);
+    }
+
+    .cursor-out {
+        margin-left: -15px;
+        margin-top: -15px;
+        width: 40px;
+        height: 40px;
+        border: 1.8px solid  var(--clr-accent-1);
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 10000000;
+        opacity: 0.5;
+    }
+    .classicLight  .cursor-out {
+        border: 1.8px solid  var(--clr-light-silver);
+    }
+
+    .cursor-out.cursor-pointer-hover {
+        opacity: 0;
+    }
+
+
+    .cursor-in {
+        transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+        margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        -webkit-transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+        margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    .cursor-out {
+        -webkit-transition: all 0.08s ease-out;
+        transition: all 0.08s ease-out;
+    }
+    @media (prefers-reduced-motion) {
+        .cursor-in {
+            transition: all 0s !important;
+        }
+        .cursor-out {
+            -webkit-transition: all 0s !important;
+            transition: all 0s !important;
+        }
+    }
+
+</style>

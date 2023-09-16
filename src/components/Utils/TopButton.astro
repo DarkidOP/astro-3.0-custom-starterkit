@@ -1,0 +1,53 @@
+---
+const { homePage } = Astro.props;
+---
+
+<a href="#"  class:list={["to-top glow",{ homePageTopBtn: homePage}]}>
+  <i class='bx bxs-up-arrow'></i>
+</a>
+
+
+<style is:global>
+  /* top button css start */
+.to-top {
+  position: fixed;
+  right: 3%;
+  bottom: 5%;
+  z-index: 1000;
+  padding: 0.15em 0.4em ;
+  font-size: 1.5rem;
+  color: var(--clr-dark-0);
+  background:  linear-gradient(120deg, var(--primary1-color), var(--primary2-color));
+  background:  var(--clr-accent-1);
+  text-align: center;
+  cursor: pointer;
+  border-radius: 6px 0px 0px 0px;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-speed);
+
+}
+.to-top i{
+  margin-top: 5px;
+}
+.scroll-true-180 .to-top {
+  transition: var(--transition-speed);
+   opacity: 1;
+   pointer-events: auto;
+ }
+
+ .scroll-true-180 .to-top:hover{
+   /* transform: scale(1.1) translate(0,-0.2em); */
+   opacity: 1;
+   color: var(--pure-white);
+  
+ }
+ @media screen and (max-width:500px){
+  .to-top{
+    transform: scale(0.87);
+    
+  }
+    }
+
+</style>
