@@ -46,7 +46,7 @@ export function getSocialIcon (platform){
         },
         {
             name: 'facebook',
-            icon: 'facebook-circle'
+            icon: 'facebook-square'
         },
         {
             name: 'website',

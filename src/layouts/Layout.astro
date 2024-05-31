@@ -14,14 +14,16 @@ import Seo from '../components/Utils/Seo.astro'
 import Alert from '../components/Utils/Alert.astro'
 import TopButton from '../components/Utils/TopButton.astro'
 import Cursor from "../components/Utils/Cursor.astro";
+import Nav from "../components/Nav/Nav.astro"
 // utils import 
 import {emptyStringChecker} from '../js/utils.js'
 // styles import
 import '../styles/colors.css';
+import "../styles/fonts/stylesheet.css";
 import "../styles/fonts.css";
 
-let defaultDescription = "";
-let defaultKeyword = "level7ltd, level7, L7ltd, soluitions, brand, event, management, marketing, production, dhaka, rangpur, cgs, event, organizer, Bangladesh, tournament, esports, gaming, bangladeshi, zenetic esports";
+let defaultDescription = "Exezen is a tech-based organization, specializing in providing cutting-edge solutions, strategic insights, and expert guidance to empower individuals and businesses in the rapidly evolving digital landscape.";
+let defaultKeyword = "exezem, org, soluitions, brand, event, marketing, production, dhaka, rangpur,  Bangladesh, tournament, esports, gaming, bangladeshi";
 
 ---
 
@@ -35,7 +37,7 @@ let defaultKeyword = "level7ltd, level7, L7ltd, soluitions, brand, event, manage
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="robots" content="index,follow">
 
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 
 		<title>{title}</title>
 		<meta name="description" content={emptyStringChecker(description, defaultDescription)}/>
@@ -43,19 +45,21 @@ let defaultKeyword = "level7ltd, level7, L7ltd, soluitions, brand, event, manage
 		<Seo 
 		title={title}
 		url={Astro.url}
+		description={emptyStringChecker(description, defaultDescription)}
 		{image}
 		/>
 
 		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	</head>
 	<body>
+		<Nav/>
 		<Alert/>
-		<TopButton/>
-		<Cursor/>
+		<!-- <TopButton/> -->
+		<!-- <Cursor/> -->
 		<slot />
 	</body>
 </html>
-<script src="/csr.js" is:inline></script>
+<!-- <script src="/csr.js" is:inline></script> -->
 <script>
 	const body = document.querySelector("body");
 	window.addEventListener('scroll', () =>{
@@ -144,8 +148,8 @@ let defaultKeyword = "level7ltd, level7, L7ltd, soluitions, brand, event, manage
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
+		background-size: 100%;
+		background-position: 50%;
 	}
 	.text-gradient-silver {
 		color: var(--clr-light-silver);

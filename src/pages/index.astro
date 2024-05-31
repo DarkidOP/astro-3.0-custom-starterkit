@@ -2,20 +2,334 @@
 import Layout from '../layouts/Layout.astro';
 import SkeletonLoadimg from '../components/Utils/SkeletonLoadimg.astro';
 import ImageSkeletonLoad from '../components/Utils/ImageSkeletonLoad.astro';
+
+
+import { getSocialIcon } from '../js/utils.js';
+let socials = [
+	{
+		name: "Discord",
+		link: "https://discord.gg/G7c4bByg2b"
+	},
+	{
+		name: "Facebook",
+		link: "https://www.facebook.com/exezenorg"
+	},
+	{
+		name: "Instagram",
+		link: "https://www.instagram.com/exezenorg/"
+	},
+	{
+		name: "Twitter",
+		link: "https://twitter.com/exezenorg"
+	},
+	{
+		name: "LinkedIn",
+		link: "https://www.linkedin.com/company/96312211/"
+	}
+]
+let description = "Exezen is a tech-based organization, specializing in providing cutting-edge solutions, strategic insights, and expert guidance to empower individuals and businesses in the rapidly evolving digital landscape."
 ---
 
-<Layout title="Level7 Marketing Solutions Ltd">
+<Layout title="EXEZEN ORG" {description}>
 	<main>
-		<h1>Hello!</h1>
-		<ImageSkeletonLoad
+		<section class="hero-wrapper container">
+			<div class="text-wrapper">
+				<div class="heading-wrapper">
+					<h1 class="heading-welcome">Welcome to</h1>
+					<h1 class="heading-exezen">Exezen</h1>
+					
+				</div>
+				<p class="desc">
+					Welcome to Exezen, where we're dedicated to leading the charge in digital transformation. As a tech-based organization, we specialize in providing cutting-edge solutions, strategic insights, and expert guidance to empower individuals and businesses in the rapidly evolving digital landscape. Whether you're looking to leverage emerging technologies, optimize your digital strategies, or enhance your digital skill set, Exezen is your trusted partner on the path to digital excellence. Join us as we shape a brighter future in the digital realm.
+				</p>
+			</div>
+			<ul class="socials-wrapper">
+				{
+					socials.map(social => 
+					<li class="social"><a href={social.link} target="_blank"><i class={getSocialIcon(social) + " glowing-icon"}></i>{social.name}</a></li>)
+				}
+
+			</ul>
+			<div class="contact-wrapper">
+				<h1>Contact</h1>
+				<ul class="contact-list-wrapper">
+					<li class="contact-item"><a class="flex-wrap" href="mailto:contact@exezen.org"><i class='bx bxs-envelope  glowing-icon'></i><span>contact@exezen.org</span></a></li>
+					<li class="contact-item"><a class="flex-wrap" href="tel:01867857988"><i class='bx bxs-phone  glowing-icon'></i><span>01867857988</span></a></li>
+				</ul>
+			</div>
+			
+		</section>
+		
+		<canvas
+		id="cobe"
+		style="width: 1100px; height: 1100px"
+		width="1100"
+		height="100"
+	  ></canvas>
+		<!-- <ImageSkeletonLoad
 		padding="20rem"
 		img = "https://cdn.discordapp.com/attachments/807283075897753635/1151079934777905253/image.png"
-		 />
-		<!-- <div class="wra">
-			<SkeletonLoadimg/>
-			<img class="x" src="https://cdn.discordapp.com/attachments/807283075897753635/1151079934777905253/image.png">
-
-		</div> -->
+		/> -->
+		<!-- <Clobe class="main-clobe"/> -->
+		<div class="overlay"></div>
 	</main>
 </Layout>
 
+<style>
+		@media screen and (min-height:800px){
+		body {
+		overflow: hidden;}
+	}
+
+	canvas {
+		width: 100%;
+		height: 100%;
+		z-index: -3;
+		position: fixed;
+		right: 0;
+		bottom: -10rem;
+	}
+
+	@media screen and (max-width:1440px){
+			canvas{
+			right: -9rem;
+		}
+	}
+
+	@media screen and (max-width:1200px){
+			canvas{
+				opacity: 0.8;
+			right: -15rem;
+		}
+	}
+	@media screen and (max-width:780px){
+			canvas{
+				opacity: 0.7;
+			right: -25rem;
+		}
+	}
+	@media screen and (max-width:560px){
+		body {
+		overflow-y: scroll;}
+			canvas{
+			right: -33rem;
+		}
+	}
+	@media screen and (max-width:500px){
+			canvas{
+			right: -40rem;
+		}
+	}
+
+
+	main{
+		width: 100%;
+		min-height: 100vh;
+		display: flex;
+		place-items: center;
+		
+		/* background-color: red; */
+	}
+
+	.hero-wrapper {
+		/* overflow-x: hidden; */
+		position: relative;
+		/* background-color: rgb(54, 42, 42); */
+	}
+	@media screen and (min-width:1024px){
+		.hero-wrapper{
+			margin-left: 10vw;
+		}
+	}
+
+
+	@media screen and (min-width:500px){
+		.overlay{
+		z-index: -2;
+		position: absolute;
+		width: 100%;
+		height: 100svh;
+		left: 0;
+		top: 0;
+
+		background:  linear-gradient(90deg, 
+		rgba(var(--clr-dark-0-rgba),1) 0%, 
+		rgba(var(--clr-dark-0-rgba),1) 55%, 
+		rgba(var(--clr-dark-0-rgba),0) 95%);
+	}
+}
+	@media screen and (max-width:500px){
+		.hero-wrapper{
+
+
+		background:  linear-gradient(90deg, 
+		rgba(var(--clr-dark-0-rgba),1) 0%, 
+		rgba(var(--clr-dark-0-rgba),1) 45%, 
+		rgba(var(--clr-dark-0-rgba),0) 100%);
+	}
+}
+	.heading-wrapper{
+		margin-top: 3rem;
+		font-size: clamp(1.6rem, 6vw, 2.9rem);
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		line-height: 1.4em;
+		margin-bottom: 1.65rem;
+		letter-spacing: 1px;
+	}
+	.heading-exezen {
+		/* font-size: 1.9em; */
+		color: var(--clr-accent-1);
+		background-image: linear-gradient(45deg, 
+		var(--clr-accent-1) 0%, 
+		var(--clr-accent-2) 20%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 100%;
+		background-position: center center;
+	}
+
+	.desc{
+		max-width: 800px;
+	}
+	/* socials css start */
+	.socials-wrapper{
+		margin-top: 4.5rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.4rem;
+		font-size: clamp(0.8rem, 3vw, 1rem);
+	}
+	/* .social{
+		transition: var(--transition-speed);
+	}
+	.social:hover{
+		transition: var(--transition-speed);
+		transform: scale(1.05);
+	} */
+	.social a{
+		user-select: none;
+		font-size: 1em;
+		display: flex;
+		flex-wrap: wrap;
+		place-items: center;
+		gap: 0.4rem;
+		padding: 0.65rem 1.3rem;
+		border-radius: 0 8px 0 0;
+		background-color: var(--clr-dark-1);
+		font-weight: 700;
+		position: relative;
+	}
+
+	.social a::after{
+		pointer-events: none;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: -1;
+		content: " ";
+		width: calc(100% + 3px);
+		height: calc(100% + 3px);
+		border-radius: 0 8px 0 0;
+		background-color: red;
+		background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 25%, rgba(255,255,255,1) 50%, rgba(0,0,0,0) 100%);
+		background-size: 500%;
+		-webkit-animation: rotate 2s ease-in-out infinite;
+    	animation: rotate 6s linear infinite;
+		opacity: 0;
+		transition: var(--transition-speed);
+	}
+	@keyframes rotate {
+	0%{
+		background-position: 0%;
+	}
+    50% {
+        background-position: 100%;
+    }
+	100%{
+		background-position: 0%;
+	}
+	}
+	
+	.social a:hover::after {
+		transition: var(--transition-speed);
+		opacity: 1;
+	}
+	.social a i{
+		font-size: 1.5em;
+	}
+	.glowing-icon{
+		font-size: 1.5em;
+		color: var(--clr-accent-1);
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		filter: drop-shadow(-1px 2px 10px rgba(var(--clr-accent-mix-rgba), 0.55));
+	}
+
+
+/* sociasl css end */
+.contact-wrapper h1{
+letter-spacing: 1px;
+margin-top: 5rem;
+}
+.contact-list-wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	place-items: center;
+	gap: 1.5rem;
+	margin-top: 0.8rem;
+}
+.contact-item a {
+	gap: 0.3rem;
+}
+.contact-item a span {
+	transition: var(--transition-speed);
+
+}
+.contact-item a:hover span {
+	text-decoration: underline;
+	transition: var(--transition-speed);
+	opacity: 0.7;
+}
+.contact-item a i{
+	gap: 0.2rem;
+	filter: drop-shadow(-1px 2px 8px rgba(var(--clr-accent-mix-rgba), 1));
+}
+</style>
+
+<script type="module" is:inline>
+	import createGlobe from 'https://cdn.skypack.dev/cobe'
+  
+	let phi = 20;
+	let canvas = document.getElementById("cobe")
+  
+	const globe = createGlobe(canvas, {
+	  devicePixelRatio: 2,
+	  width: 1800,
+	  height: 1800,
+	  phi: 0,
+	  theta: 0.3,
+	  dark: 1,
+	  diffuse: 3,
+	  scale: 1,
+	  mapSamples: 16000,
+	  mapBrightness: 2,
+	  baseColor: [1, 1, 1.12],
+	  markerColor: [0.3, 0.7, 0.8],
+	  glowColor: [0.75, 0.75, 0.75],
+	  offset: [0, 0],
+	  markers: [
+	  //   { location: [37.7595, -122.4367], size: 0.03 },
+		{ location: [23.6850, 90.3563], size: 0.065 },
+	  ],
+	  onRender: (state) => {
+		// Called on every animation frame.
+		// `state` will be an empty object, return updated params.
+		state.phi = phi
+		phi += 0.01
+	  },
+	})
+  </script>

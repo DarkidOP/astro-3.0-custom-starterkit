@@ -1,0 +1,5 @@
+---
+const {social} = Astro.props
+import { getSocialIcon } from "../js/utils.js";
+---
+<i class={getSocialIcon(social)}></i>

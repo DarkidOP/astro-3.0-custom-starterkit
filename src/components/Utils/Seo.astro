@@ -3,11 +3,11 @@
 // import jsonLDGenerator from "../js/jsonLD";
 
 const siteData = {
-    title: "Level 7 Ltd",
-    description: "Level 7 is a comprehensive, full-service marketing, advertising, and business development firm based in Dhaka, Bangladesh. Established in 2010.",
+    title: "Exezen Org",
+    description: "Exezen is a tech-based organization, specializing in providing cutting-edge solutions, strategic insights, and expert guidance to empower individuals and businesses in the rapidly evolving digital landscape.",
     image: {
-        src: "/dew-areana-logo.png",
-        alt: "Level 7 Ltd"
+        src: "https://cdn.discordapp.com/attachments/772074658014167080/1155522417180037131/Exezen-thumbnail.png",
+        alt: "Exezen.org"
     }
 }
 const {
@@ -27,13 +27,13 @@ const {
 ---
 
 <!-- SEO -->
-<link rel="canonical" href={url} />
+<link rel="canonical" href="https://exezen.org" />
 
 <!-- Open Graph -->
-<meta property="og:site_name" content="Level 7 Ltd" />
+<meta property="og:site_name" content="Exezen.org" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:url" content={url} />
+<meta property="og:url" content="https://exezen.org" />
 <meta property="og:image" content={image?.src || siteData.image.src} />
 <meta property="og:image:url" content={image?.src || siteData.image.src} />
 <meta
@@ -44,7 +44,7 @@ const {
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="600" />
 <meta property="og:image:alt" content={image?.alt || siteData.image.alt} />
-<meta name="theme-color" content="#6ca940"/>
+<meta name="theme-color" content="#3a9dfa"/>
 <!-- Twitter -->
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
